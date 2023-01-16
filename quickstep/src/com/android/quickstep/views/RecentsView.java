@@ -95,6 +95,7 @@ import android.content.LocusId;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BlendMode;
+import android.graphics.Color;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -913,7 +914,8 @@ public abstract class RecentsView<
         mEmptyIcon.setCallback(this);
         mEmptyMessage = context.getText(R.string.recents_empty_message);
         mEmptyMessagePaint = new TextPaint();
-        mEmptyMessagePaint.setColor(Themes.getAttrColor(context, android.R.attr.textColorPrimary));
+        mEmptyIcon.setTint(Color.WHITE);
+        mEmptyMessagePaint.setColor(Color.WHITE);
         mEmptyMessagePaint.setTextSize(getResources()
                 .getDimension(R.dimen.recents_empty_message_text_size));
         mEmptyMessagePaint.setTypeface(Typeface.create(Themes.getDefaultBodyFont(context),
