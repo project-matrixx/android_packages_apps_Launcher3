@@ -46,6 +46,7 @@ import androidx.annotation.WorkerThread;
 import com.android.launcher3.celllayout.CellPosMapper;
 import com.android.launcher3.config.FeatureFlags;
 import com.android.launcher3.icons.IconCache;
+import com.android.launcher3.lineage.trust.AppLockHelper;
 import com.android.launcher3.model.AddWorkspaceItemsTask;
 import com.android.launcher3.model.AllAppsList;
 import com.android.launcher3.model.BaseLauncherBinder;
@@ -159,7 +160,7 @@ public class LauncherModel implements InstallSessionTracker.Callback {
         mApp = app;
         mPmHelper = pmHelper;
         mModelDbController = new ModelDbController(context);
-        mBgAllAppsList = new AllAppsList(iconCache, appFilter, app.getHiddenData());
+        mBgAllAppsList = new AllAppsList(iconCache, appFilter, AppLockHelper.getInstance(context));
         mModelDelegate = ModelDelegate.newInstance(context, app, mPmHelper, mBgAllAppsList,
                 mBgDataModel, isPrimaryInstance);
     }
