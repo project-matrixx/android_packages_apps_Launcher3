@@ -112,6 +112,7 @@ public class SettingsAppDrawer extends CollapsingToolbarBaseActivity
         switch (key) {
             case Utilities.KEY_DRAWER_SEARCH:
             case Utilities.KEY_DRAWER_SCROLLBAR:
+            case Utilities.KEY_FORCE_MONOCHROME_ICON:
                 LauncherAppState.INSTANCE.executeIfCreated(app -> app.setNeedsRestart());
                 break;
             default:

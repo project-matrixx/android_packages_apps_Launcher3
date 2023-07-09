@@ -203,6 +203,7 @@ public final class Utilities {
     public static final String KEY_SHOW_QUICKSPACE_WEATHER_CITY = "pref_quickspace_weather_city";
     public static final String KEY_SHOW_QUICKSPACE_WEATHER_TEXT = "pref_quickspace_weather_text";
     public static final String KEY_DRAWER_SCROLLBAR = "pref_drawer_scrollbar";
+    public static final String KEY_FORCE_MONOCHROME_ICON = "pref_force_monochrome_icon";
 
     /**
      * Returns true if theme is dark.
@@ -1203,4 +1204,9 @@ public final class Utilities {
         SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
         return prefs.getBoolean(KEY_DRAWER_SCROLLBAR, true);
     }
+
+    public static boolean isForcedMonoIconEnabled(Context context) {
+        SharedPreferences prefs = LauncherPrefs.getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_FORCE_MONOCHROME_ICON, false);
+   }
 }
