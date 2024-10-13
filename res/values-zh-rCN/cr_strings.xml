@@ -108,7 +108,7 @@
     <!-- Background opacity -->
     <string name="background_opacity_title">背景不透明度</string>
     <!-- Stroke -->
-    <string name="stroke_width_title">Stroke</string>
+    <string name="stroke_width_title">轮廓型</string>
     <!-- Wallpaper scrolling -->
     <string name="allow_wallpaper_scrolling">壁纸滚动</string>
     <string name="allow_wallpaper_scrolling_summary">壁纸随屏幕滚动</string>
@@ -357,8 +357,8 @@
     <string name="quick_event_weather_text_summary">显示当前天气状况摘要</string>
     <string name="intent_no_app_clock_found">找不到日历或时钟活动</string>
     <!-- App drawer scrollbar -->
-    <string name="drawer_scrollbar_title">Scrollbar</string>
-    <string name="drawer_scrollbar_summary">Scrollbar on side of the app drawer</string>
+    <string name="drawer_scrollbar_title">滚动条</string>
+    <string name="drawer_scrollbar_summary">应用抽屉侧边滚动条</string>
     <!-- Force monochrome icons -->
     <string name="force_monochrome_icons_title">强制主题化图标</string>
     <string name="force_monochrome_icons_summary">在应用程序不支持的情况下生成单色图标（需要重新启用主题化图标）</string>
