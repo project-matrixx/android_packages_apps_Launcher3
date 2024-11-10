@@ -92,7 +92,7 @@ public class SysUiScrim implements View.OnAttachStateChangeListener,
 
     private final View mRoot;
     private final BaseDraggingActivity mActivity;
-    private final boolean mHideSysUiScrim;
+    private boolean mHideSysUiScrim;
     private boolean mSkipScrimAnimationForTest = false;
 
     private boolean mAnimateScrimOnNextDraw = false;
@@ -107,8 +107,7 @@ public class SysUiScrim implements View.OnAttachStateChangeListener,
         mTopMaskHeight = ResourceUtils.pxFromDp(TOP_MASK_HEIGHT_DP, dm);
         mBottomMaskHeight = ResourceUtils.pxFromDp(BOTTOM_MASK_HEIGHT_DP, dm);
         SharedPreferences prefs = LauncherPrefs.getPrefs(view.getContext());
-        final boolean showScrim = prefs.getBoolean(KEY_SHOW_TOP_SHADOW, true);
-        mHideSysUiScrim = !showScrim;
+        mHideSysUiScrim = !prefs.getBoolean(KEY_SHOW_TOP_SHADOW, true);
 
         mTopMaskBitmap = mHideSysUiScrim ? null : createDitheredAlphaMask(mTopMaskHeight,
                 new int[]{0x3DFFFFFF, 0x0AFFFFFF, 0x00FFFFFF},
@@ -193,6 +192,7 @@ public class SysUiScrim implements View.OnAttachStateChangeListener,
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (key.equals(KEY_SHOW_TOP_SHADOW)) {
+            mHideSysUiScrim = !prefs.getBoolean(KEY_SHOW_TOP_SHADOW, true);
             mRoot.invalidate();
         }
     }
