@@ -898,7 +898,11 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
 
         // If app targets are translucent, do not animate the background as it causes a visible
         // flicker when it resets itself at the end of its animation.
-        animatorSet.play(appAnimator);
+        if (appTargetsAreTranslucent || !launcherClosing) {
+            animatorSet.play(appAnimator);
+        } else {
+            animatorSet.playTogether(appAnimator, getBackgroundAnimator());
+        }
         return animatorSet;
     }
 
@@ -1034,7 +1038,11 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
 
         // If app targets are translucent, do not animate the background as it causes a visible
         // flicker when it resets itself at the end of its animation.
-        animatorSet.play(appAnimator);
+        if (appTargetsAreTranslucent || !launcherClosing) {
+            animatorSet.play(appAnimator);
+        } else {
+            animatorSet.playTogether(appAnimator, getBackgroundAnimator());
+        }
         return animatorSet;
     }
 
@@ -1618,6 +1626,12 @@ public class QuickstepTransitionManager implements OnDeviceProfileChangeListener
                 } else {
                     anim.play(new StaggeredWorkspaceAnim(mLauncher, velocity.y,
                             true /* animateOverviewScrim */, launcherView).getAnimators());
+                }
+
+                if (!areAllTargetsTranslucent(appTargets)) {
+                    anim.play(ObjectAnimator.ofFloat(mLauncher.getDepthController().stateDepth,
+                            MULTI_PROPERTY_VALUE,
+                            BACKGROUND_APP.getDepth(mLauncher), NORMAL.getDepth(mLauncher)));
                 }
 
                 // We play StaggeredWorkspaceAnim as a part of the closing window animation.
