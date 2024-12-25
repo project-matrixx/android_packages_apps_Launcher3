@@ -164,7 +164,7 @@ public class QsbLayout extends FrameLayout {
                 Intent lensIntent = new Intent();
                 lensIntent.setAction(Intent.ACTION_VIEW)
                         .setComponent(new ComponentName(Utilities.GSA_PACKAGE, Utilities.LENS_ACTIVITY))
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .setData(Uri.parse(Utilities.LENS_URI))
                         .putExtra("LensHomescreenShortcut", true);
                 mContext.startActivity(lensIntent);
