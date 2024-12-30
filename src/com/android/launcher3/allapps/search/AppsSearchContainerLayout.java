@@ -209,7 +209,7 @@ public class AppsSearchContainerLayout extends ExtendedEditText
 
     @Override
     public void onSearchResult(String query, ArrayList<AdapterItem> items) {
-        if (query.equalsIgnoreCase(mContext.getString(R.string.private_space_label))) {
+        if (query.equalsIgnoreCase(getContext().getString(R.string.private_space_label))) {
             privateSpaceQuery();
             return;
         }
@@ -245,7 +245,7 @@ public class AppsSearchContainerLayout extends ExtendedEditText
             privateProfileManager.setQuietMode(false);
         } else if (!mAppsView.hasPrivateProfile()) {
             final Intent privateSpaceSettingsIntent =
-                    ApiWrapper.INSTANCE.get(mContext).getPrivateSpaceSettingsIntent();
+                    ApiWrapper.INSTANCE.get(getContext()).getPrivateSpaceSettingsIntent();
             if (privateSpaceSettingsIntent != null) {
                 mLauncher.startActivitySafely(mAppsView, privateSpaceSettingsIntent, null);
             }
