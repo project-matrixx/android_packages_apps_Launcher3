@@ -159,15 +159,20 @@ public class QsbLayout extends FrameLayout {
     }
 
     private void setupLensIcon() {
-        Intent lensIntent = new Intent();
-        lensIntent.setComponent(new ComponentName(Utilities.GSA_PACKAGE,
-             Utilities.LENS_ACTIVITY));
-        if (lensIntent.resolveActivity(mContext.getPackageManager()) != null) {
+        try {
             lensIcon.setOnClickListener(view -> {
-                lensIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                Intent lensIntent = new Intent();
+                Bundle bundle = new Bundle();
+                bundle.putString("caller_package", Utilities.GSA_PACKAGE);
+                bundle.putLong("start_activity_time_nanos", SystemClock.elapsedRealtimeNanos());
+                lensIntent.setComponent(new ComponentName(Utilities.GSA_PACKAGE, Utilities.LENS_ACTIVITY))
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .setPackage(Utilities.GSA_PACKAGE)
+                        .setData(Uri.parse(Utilities.LENS_URI))
+                        .putExtra("lens_activity_params", bundle);
                 mContext.startActivity(lensIntent);
             });
-        } else {
+        } catch (Exception e) {
             lensIcon.setVisibility(View.GONE);
         }
     }
