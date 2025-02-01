@@ -433,4 +433,8 @@
     <!-- Circle to Search -->
     <string name="pref_allow_cts_title">Circle to Search</string>
     <string name="pref_allow_cts_summary">Touch and hold the Home button or the navigation handle to search using the content on your screen.</string>
+
+    <!-- Background blur at app launch-->
+    <string name="pref_blur_background_at_app_launch_title">Background blur at app launch</string>
+    <string name="pref_blur_background_at_app_launch_summary">Blur the background at app launch</string>
 </resources>
