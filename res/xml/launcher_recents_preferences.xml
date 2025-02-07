@@ -29,6 +29,14 @@
             android:persistent="true"
             launcher:iconSpaceReserved="false" />
 
+        <SwitchPreferenceCompat
+            android:key="pref_recents_meminfo_zram"
+            android:title="@string/recents_meminfo_zram_title"
+            android:defaultValue="true"
+            android:persistent="true"
+            android:dependency="pref_recents_meminfo"
+            launcher:iconSpaceReserved="false" />
+
 <!--        <com.android.launcher3.settings.preferences.CustomSeekBarPreference
             android:key="pref_recents_opacity"
             android:title="@string/background_opacity_title"
