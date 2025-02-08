@@ -57,13 +57,6 @@
          android:persistent="true"
          launcher:iconSpaceReserved="false" />
 
-    <SwitchPreferenceCompat
-        android:key="pref_allow_cts"
-        android:title="@string/pref_allow_cts_title"
-        android:summary="@string/pref_allow_cts_summary"
-        android:defaultValue="@*android:bool/config_searchAllEntrypointsEnabledDefault"
-        launcher:iconSpaceReserved="false" />
-
     <androidx.preference.PreferenceScreen
         android:persistent="false"
         android:title="@string/suggestion_pref_screen_title"
